@@ -1,0 +1,43 @@
+@media (min-width: 320px) and (max-width: 767px) {
+
+	.page-nav{overflow-x: auto;}
+	.page-nav-list{white-space: nowrap;}
+
+	.user-icon{margin-right: 5;}
+	.filter-data-list{display: none!important;}
+
+
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+	.main-container{padding-left: 0px; padding-right: 0px;}
+	.login-block{width: 100%;}
+
+	.nav-brand>li{margin-right: 8px;}
+	.logo{width: 80px;}
+
+	
+
+	.text-lg{font-size: 16px;}
+	.main-container.toggle{width: auto;}
+
+	.option-panel{padding-left: 0;}
+	.option-panel .option-item{
+		width: 100%;
+	}
+	.pid{font-size: 14px;}
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+	
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+
+}

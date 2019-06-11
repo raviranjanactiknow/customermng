@@ -1,0 +1,298 @@
+/*main container*/
+.main-container{ float: left; padding: 50px 0px 30px 0px; width: 100%; position: relative;}
+.main-container.toggle{padding-left: 200px;}
+.main-container.toggle-right{padding-right: 200px;}
+
+/*main outer page container*/
+.main-content{padding-top: 100px; padding-bottom: 10px;}
+.inline-list>li{display: inline-block;}
+
+/*=======================
+    COMMON
+========================*/
+/*background-image*/
+.bg-img{background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;/*
+    background-attachment: fixed;*/
+    background-repeat: no-repeat; width: 100%;}
+
+.bg-1{
+    background-position: 0 15%;
+    background-image:  url(../img/login/bg-1.jpg);
+    position: relative;
+    z-index: 0;
+}
+/*.bg-img:before{    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.4);}*/
+
+.overlay{  z-index: 0;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(35, 35, 35, 0.3);}
+
+/*page-title*/
+.page-header{margin-bottom:  15px;}
+.page-header > .page-title{font-weight: 600; font-size: 22px;}
+
+.page-filtered-tag{margin-bottom:  15px;}
+
+/*title*/
+.title.title-xs{font-size: 14px;}
+.title.title-sm{font-size: 18px;}
+.title.title-md{font-size: 20px;}
+.title.title-lg{font-size: 22px;}
+.title.title-xl{font-size: 24px;}
+
+
+/*=======================
+    PAGES
+========================*/
+
+
+
+.page-selectSurvey,
+.survey-page{margin-top: 10%;}
+
+
+/*=======================
+    TOP BAR
+========================*/
+.topBar{ position: fixed; top: 0; left: 0; right: 0; z-index: 15; height: 50px;}
+.topBar .toggle-sideBar { font-weight: 800; cursor: pointer; display: inline-block;}
+.topBar .logo{ margin-top: 10px; color: #fff;}
+
+.logo-icon{ font-weight: 800; font-size: 20px; color: #fff;}
+
+
+/*=======================
+    SIDE BAR
+========================*/
+.sideBar{position: fixed; left: 0; top: 0; bottom: 0; background-color: #000; width: 200px; padding-top: 50px;z-index: 10; display: none; border-right:1px solid #ddd;}
+.sideBar.open{display: block;}
+
+.sideBar-navigation .sideBar-menu{ width: 40px; float: left; height: 100%; background-color: #000;}
+
+.sideBar-menu .nav-item{border-bottom:1px solid #ffffff21; color: #888; cursor: pointer;}
+.sideBar-menu .nav-item:last-child{border-bottom:0;}
+
+.nav-icon{text-align: center; width: 40px; display: block; color: #848484}
+.nav-icon:hover{color: #fff;}
+
+.nav-icon > i{ line-height: 50px; font-size: 16px;}
+.nav-icon.active{ color: #fff;}
+
+/*nav item list*/
+.nav-list > .nav-item > .nav-link{color:#4cd6ad;border-bottom: 1px solid #161d1b;font-size: 14px; padding: 0 15px; border-radius: 0; line-height: 50px; display: block;position: relative;}
+.nav-list > .nav-item > .nav-link.active{ background-color:#272b27; color: #fff;}
+.nav-list > .nav-item:hover .nav-link{color: #fff;}
+
+/*sub menu*/
+.sideBar-subMenu{ padding-left: 0px;}
+.sideBar-subMenu .nav-item>.nav-link::after{position: absolute; top: 0px; right: 40px; opacity: 0; content: "\f054"; font-family: 'Font Awesome\ 5 Free'; font-weight: 900; color: #000; transition: all 0.3s ease-out }
+.sideBar-subMenu .nav-item:hover .nav-link::after{opacity: 1; right: 20px; color: #fff;}
+
+
+
+/*=================
+    filter bar
+==================*/
+/*filter-panel*/
+.filterBar{display:none;background-color: #fff; position: fixed; right: 0; top: 0; bottom: 0;z-index: 10; padding-top: 50px; width: 185px;}
+
+.fB-content{padding: 10px;}
+
+.filter-items-panel .filter-item{padding: 0px 0!important;}
+.filter-items-panel .filter-item label{font-weight: 500;}
+.filter-item .form-check-label{font-weight: 400}
+.filter-bar .list-sm>li {
+    padding: 0px 0;
+}
+
+.filter-icon>i
+  {
+    color: #fff;
+    background: #4cd6ad;
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0px 0px 2px #888;
+    padding: 1.0em 1.0em;
+ }
+
+/*=================
+    login page
+==================*/
+.login-block{width: 100%; height: 100%;}
+.login-content{background-color: #ffffff96; padding: 30px;}
+.login-block .login-title{margin-bottom: 20px ; border-left: 5px solid #F44336;padding-left: 10px;}
+
+
+/*==============
+  Register Page
+  ==============*/
+.register-block{width: 100%; height: 100%;}
+.register-content{background-color: #ffffff96; padding: 30px;}
+.register-block .register-title{margin-bottom: 20px ; border-left: 5px solid #fff;padding-left: 10px;color: #fff}
+
+
+
+/*=====================
+    SENTIMENTS
+======================*/
+.domain-item{margin-bottom: 10px!important; }
+.domain-item .domain-link{padding: 8px; background-color: #fff; display: block; position: relative; border-radius: 4px;}
+.domain-list.nav-tabs{border:0;}
+.domain-item .edit-domain{font-size: 15px; color: #607d8b; padding: 3px; }
+.domain-item:hover .edit-domain{display: block;}
+.domain-item:hover .domain-link{background-color: #fff;}
+
+
+.domain-item .domain-link:before{position: absolute; top: 3px; right: 10px; opacity: 1; content: "\f138"; font-family: 'Font Awesome\ 5 Free'; font-weight: 900;font-size: 20px; color: #fff; transition: all 0.3s ease-out;}
+.domain-item .domain-link.active:before{display: block;  color: #fff;}
+.domain-item .domain-link.active{background-color: #607d8b; color: #fff;}
+
+/*question action controller*/
+.ques-controller{display: none; margin-top: 6px; margin-right: 10px;}
+
+/*question list*/
+.ques-list .ques-item{cursor: pointer; border-bottom: 1px solid #eee; padding: 10px;}
+.ques-list .ques-item:hover{}
+
+
+.ques-control{border-color: #ddd;  background-color: #eee; padding:10px 5px;}
+
+/*chart block*/
+.chartdiv{width: 100%; height: 200px; font-size: 11px;}
+
+
+
+/*=====================
+    COREQ SURVEY APP
+======================*/
+.coreqHeader{height: 80px;}
+.coreQ-logo{font-size: 35px;}
+
+.coreq-input{height: 45px;padding: 10px;}
+.selectSurvey-form{margin-top: 30%;}
+.selectSurvey-field{padding: 30px;background-color: #ffffff82;}
+
+.selectSurvey-btn{line-height: 40px; padding: 0; width: 100%; font-weight: 800; text-align: center;}
+
+.survey-page .ques-list .ques-item{background-color: #fff; padding: 10px; margin-bottom: 20px; border-radius: 5px;}
+.survey-page .ques-number{ float: left; width: 40px; height: 40px; font-size: 25px;}
+
+.survey-page .ques{ min-height: 40px; font-size: 20px;    padding-left: 40px;}
+
+.option-panel{ padding-left: 40px; margin-top: 20px;}
+.option-panel .selection { margin-bottom: 1em; width: 100%;}
+.option-panel .selection label { display: inline-block; width:100%; text-align: center; background-color: #bdbdbd; border-radius: 3px; color: #ffffff; padding: 0.5em; cursor: pointer;}
+.option-panel .selection label:hover { background-color: #9e9e9e;}
+
+.option-panel .selection input[type=radio] {display: none;}
+.option-panel .selection input[type=radio]:checked ~ label {background-color: #78d013;}
+
+.option-list{width: 100%;}
+.option-item{width: 19%;}
+
+.submit-btn{padding:10px 20px; font-size: 13px;}
+
+.pid{font-size: 14px;}
+
+
+.wd-30
+{
+    width: 30px;
+}
+.wrap
+{
+    padding-top: 20px;
+}
+
+
+
+
+/*Switch On Off CSS Start*/
+
+.switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 17px;
+    }
+
+    .switch input {display:none;}
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 17px;
+        left: 1px;
+        bottom: 1px;
+        background-color:#f5f5f5;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color:#4cd6ad;}
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+   
+    .slider.round {
+        border-radius: 17px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+/*switch on off css end**/
+
+
+
+.ft-dark-black
+{
+    color: #000;
+}
+
+
+
+
+
+
+
+

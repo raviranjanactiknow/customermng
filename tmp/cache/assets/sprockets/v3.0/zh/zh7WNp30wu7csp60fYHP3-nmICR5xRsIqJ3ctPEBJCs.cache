@@ -1,0 +1,7 @@
+I"b(function() {
+  jQuery(function() {
+    return $('#dob').datepicker();
+  });
+
+}).call(this);
+:ET
