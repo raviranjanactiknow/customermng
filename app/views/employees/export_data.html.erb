@@ -1,0 +1,10 @@
+<table border="1" id="doc">
+	<tr><td>Name</td>
+	<td>Dob</td>
+	<td>Address</td>
+	<td>Salary</td>
+    </tr>
+	<% @employees.each do |emp| %>
+	<%= render "reportcard", emp: emp %>
+	<% end %>
+</table>

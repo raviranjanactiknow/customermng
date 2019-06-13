@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   
   resources :employees do
     collection do
-     post :add_contact
+     get :export_data
+     post :data_check
      post :delete_number
     end
   end

@@ -1,5 +1,4 @@
 
-
 <div class="topBar skin-primary">
  <div class="container-fluid">
   <div class="row align-items-center">
@@ -17,6 +16,7 @@
 </div>
 <div class="col-md-4">
   <!--<h4 class="text-center text-white fw-600 uppercase mt-2">Dashboard</h4>-->
+
 </div>
 <div class="col-md-4 text-right">
   <!-- Example split danger button -->
@@ -48,25 +48,41 @@
  </div>
 </div>
 </div>
-
+<div class="container">
+  <%= flash_messages %>
+</div><!-- /container -->
 <section class="wrap page-addVendors">
  <div class="row">
    <div class="col-md-9 offset-md-2">
+    <div class="col-md-8">
+      <%= form_tag("/employees/data_check", remote: true ,id: "exp_data") do %>
+      <div class="row">
+        <div class="col-md-4">
+          <%= select_tag "Exprt",options_for_select(["Excel","Pdf"]),class: "v-control input-xs" %>
+        </div>
+        <div class="col-md-2">
+          <%= submit_tag("Print",class: "v-btn v-btn-primary btn-sm no-round  btn-shadow") %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <br>
     <div class="block bx-shadow skin-light">
      <div class="content">
       <table id="example" class="table table-striped">
        <thead>
         <tr>
-         <th>Salute</th>
-         <th>Name</th>
-         <th>Gender </th>
-         <th>DOB</th>
-         <th>Address</th>
-         <th>Salary</th>
-         <th>Action</th>
-       </tr>
-     </thead>
-     <tbody>
+          <!-- <th>Emp Detail</th> -->
+          <th>Salute</th>
+          <th>Name</th>
+          <th>Gender </th>
+          <th>DOB</th>
+          <th>Address</th>
+          <th>Salary</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
        <% @employees.each do |emp| %>
        <tr>
          <% if emp.present? %>
@@ -81,10 +97,13 @@
            <%= link_to edit_employee_path(emp) ,class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>
            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
            <% end %>
-           
-           <%= link_to  employee_path(emp) , method: :delete, data: { confirm: "Are you sure?" },class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>
-           <i class="fa fa-trash"></i>
-           <% end %>
+               <!-- Delete Button showing the modal Start-->
+               <a data-toggle="modal" data-target="#exampleModal<%= emp.id %>" class="v-btn v-btn-transparent ft-primary icon icon-xs uppercase">
+               <i
+                 class="fa fa-trash "></i>
+               </a>
+           <%= render 'empmodel' ,:emp => emp %>
+           <!-- Delete Button shoing the model End--->
          </td>
        </td>
      </tr>
@@ -100,10 +119,3 @@
 <%= will_paginate @employees, renderer: WillPaginateSemanticUi::ActionView::Renderer, class: "right floated", inner_window: 3 %>
 </div>
 </section>
-
-
-
-
-
-
-

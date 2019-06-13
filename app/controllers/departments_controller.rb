@@ -13,7 +13,7 @@ class DepartmentsController < ApplicationController
     @department = Department.new(department_params)
     respond_to do |format|
     if @department.save
-      format.html { redirect_to departments_path ,notice: 'Department was successfully created.'}
+      format.html { redirect_to departments_path ,success: 'Department was successfully created.'}
    else
      format.html {render :new , notice: "Error in Creatin department" }
    end
@@ -28,6 +28,7 @@ class DepartmentsController < ApplicationController
     #debugger
     @department = Department.find(params[:id])
     @department.update(department_params)
+    flash[:success] = "Department updated successfully"
     redirect_to departments_path
   end
 

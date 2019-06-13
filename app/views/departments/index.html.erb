@@ -41,6 +41,9 @@
  </div>
 </div>
 </div>
+<div class="container">
+  <%= flash_messages %>
+</div><!-- /container -->
 <section class="wrap page-addVendors">
   <div class="row">
     <div class="col-md-9 offset-md-2">
@@ -61,10 +64,13 @@
                  <%= link_to edit_department_path(dep) ,class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>
                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                  <% end %>
-                 
-                 <%= link_to  department_path(dep) , method: :delete, data: { confirm: "Are you sure?" },class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>
-                 <i class="fa fa-trash"></i>
-                 <% end %>
+                 <!-- Delete Button showing the modal Start-->
+                 <a data-toggle="modal" data-target="#exampleModal<%= dep.id %>" class="v-btn v-btn-transparent ft-primary icon icon-xs uppercase">
+                   <i
+                   class="fa fa-trash "></i>
+                 </a>
+                 <%= render 'deptmodel' ,:dep => dep %>
+                 <!-- Delete Button showing the model End--->   
                </td>
              </tr>
              <% end %>

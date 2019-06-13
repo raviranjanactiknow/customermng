@@ -76,6 +76,8 @@ gem 'nested_form_fields'
 gem 'jquery-ui-rails'
 gem 'sweetalert-rails'
 gem 'semantic-ui-sass'
+gem 'prawn'
+gem 'prawn-table'
 
 
 

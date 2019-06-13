@@ -1,0 +1,6 @@
+<tr>
+	<td><%= emp.name %></td>
+	<td><%= emp.dob.strftime("%b/%d/%Y") %></td>
+	<td><%= emp.address %></td>
+	<td><%= total_salary(emp.base_salary,emp.da,emp.ta)%></td>
+</tr>
