@@ -11,13 +11,21 @@
 // about supported directives.
 //
 //= require jquery
-//= require semantic-ui
+//= require jquery-ui
+//= require custom
 //= require rails-ujs
+//= require semantic-ui
 //= require jquery-ui/widgets/datepicker
 //= require activestorage
 //= require turbolinks
 //= require_nested_form_fields
 //= require sweetalert
+//= require cable
+//= require bootstrap.min
+//= require popper.min
+//= require bootstrap-popover-x
+//= dataTables.bootstrap4.min
+//= require jquery.dataTables.min
 //= require_tree .
 
 $(document).ready(function(){

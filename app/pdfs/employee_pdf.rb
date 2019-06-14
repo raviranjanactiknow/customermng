@@ -15,9 +15,9 @@ class EmployeePdf < Prawn::Document
 		end
 	end
 	def employee_id_all
-		[["Name","Dob","Address","Salary"]] +
+		[["Salute","Name","Dob","Address","Salary"]] +
 		@employees.map do |emp|
-			[emp.name,emp.dob,emp.address,salary(emp.base_salary,emp.da,emp.ta)]
+			[emp.salute,emp.name,emp.dob.strftime("%b/%d/%Y"),emp.address,salary(emp.base_salary,emp.da,emp.ta)]
 		end
 	end
 	

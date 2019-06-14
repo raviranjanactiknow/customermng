@@ -15,7 +15,7 @@ class DepartmentsController < ApplicationController
     if @department.save
       format.html { redirect_to departments_path ,success: 'Department was successfully created.'}
    else
-     format.html {render :new , notice: "Error in Creatin department" }
+     format.html {render :new , notice: "Error in Creating department" }
    end
  end
   end
