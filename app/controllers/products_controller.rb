@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
      @supply_options = Supplier.all.map { |d| [ d.company_name,d.id ] }
      @category_options = Category.all.map { |d| [ d.category_name,d.id ] }
      @product = Product.find_by_id(params[:id])
-     product.update(product_params)
+     @product.update(product_params)
      redirect_to products_path
    end
 
