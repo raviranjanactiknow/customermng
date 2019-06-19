@@ -3,11 +3,11 @@ class EmployeesController < ApplicationController
   def index
     @employees = Employee.order("updated_at desc").paginate(page: params[:page],per_page: 10)
     respond_to do |format|
-    format.html
-    format.pdf do
-    pdf = EmployeePdf.new( @employees )
-    send_data pdf.render, filename: "employees.pdf",type: "application/pdf", disposition: "attachment"
-    end
+      format.html
+      format.pdf do
+        pdf = EmployeePdf.new( @employees )
+        send_data pdf.render, filename: "employees.pdf",type: "application/pdf", disposition: "attachment"
+      end
     end
   end
 
@@ -18,20 +18,20 @@ class EmployeesController < ApplicationController
 
   def create
      # debugger
-    @dep_options = Department.all.map { |d| [ d.name,d.id ] } 
-    @employee = Employee.new(employee_params)
-   if @employee.save
+     @dep_options = Department.all.map { |d| [ d.name,d.id ] } 
+     @employee = Employee.new(employee_params)
+     if @employee.save
       p_num = params[:employee][:phone_number]
-    if p_num.present?
-      p_num.each do|p_no| 
-      @employee.phone_numbers.create!(phone_num: p_no)
+      if p_num.present?
+        p_num.each do|p_no| 
+          @employee.phone_numbers.create!(phone_num: p_no)
+        end
       end
-    end
-    flash[:success] = "Employee created successfully"
-    redirect_to root_path
+      flash[:success] = "Employee created successfully"
+      redirect_to root_path
     else
       flash.now[:alert] = "Error occure"
-    render 'new'
+      render 'new'
     end
   end
 
@@ -45,11 +45,11 @@ class EmployeesController < ApplicationController
     #debugger
     @dep_options = Department.all.map { |d| [ d.name,d.id ] }
     @employee = Employee.find_by_id(params[:id])
-   if @employee.update(employee_params)
+    if @employee.update(employee_params)
       p_num = params[:employee][:phone_number]
-     if p_num.present?
+      if p_num.present?
         p_num.each do|p_no| 
-        @employee.phone_numbers.create!(phone_num: p_no)
+          @employee.phone_numbers.create!(phone_num: p_no)
         end
       end
       flash[:success] = "You have updated employee successfully"
@@ -78,9 +78,9 @@ class EmployeesController < ApplicationController
 
   def data_check 
     #debugger 
-   if(params[:Exprt].present?)
+    if(params[:Exprt].present?)
       data_value = params[:Exprt]
-     if(data_value == 'Excel')
+      if(data_value == 'Excel')
         redirect_to export_data_employees_path(format: "xls")
       else
         redirect_to employees_path(format: 'pdf')
@@ -94,7 +94,7 @@ class EmployeesController < ApplicationController
     e1 = Employee.find(params[:id])
     if p_num.present? && e1.present?
       p_num.each do|p_number|
-      e1.phone_numbers.find_by_phone_num(p_number).destroy  
+        e1.phone_numbers.find_by_phone_num(p_number).destroy  
       end
     end
     render json: {status: 'ok', message: "proceed" }

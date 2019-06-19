@@ -19,7 +19,7 @@
 			<div class="col-md-4 text-right">
 				<!-- Example split danger button -->
 				<div class="btn-group mt-2">
-					<%= link_to 'Back', root_path, class: "v-btn v-btn-primary btn-sm no-round float-right btn-shadow" %>
+					<%=  link_to "Logout", destroy_user_session_path, method: :delete, class: "v-btn v-btn-primary btn-sm no-round float-right btn-shadow" %>
 					<button type="button" class="v-btn v-btn-dark btn-sm no-round dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span class="sr-only">Toggle Dropdown</span>
 					</button>
@@ -35,8 +35,8 @@
 </div>
 <%= render 'sidbar' %>
 <div class="container">
-      <%= flash_messages %>
-    </div><!-- /container -->
+	<%= flash_messages %>
+</div><!-- /container -->
 <section class="wrap page-addVendors">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">

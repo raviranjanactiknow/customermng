@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_085620) do
+ActiveRecord::Schema.define(version: 2019_06_18_060732) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category_name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -41,6 +48,33 @@ ActiveRecord::Schema.define(version: 2019_06_06_085620) do
     t.index ["employee_id"], name: "index_phone_numbers_on_employee_id"
   end
 
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "product_name"
+    t.string "quantity_per_unit"
+    t.decimal "unit_price", precision: 10, scale: 3
+    t.integer "unit_in_stock"
+    t.integer "recorder_level"
+    t.bigint "supplier_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["supplier_id"], name: "index_products_on_supplier_id"
+  end
+
+  create_table "suppliers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "company_name"
+    t.string "contact_name"
+    t.text "address"
+    t.string "city"
+    t.string "region"
+    t.string "postal_code"
+    t.string "country"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -55,4 +89,6 @@ ActiveRecord::Schema.define(version: 2019_06_06_085620) do
 
   add_foreign_key "employees", "departments"
   add_foreign_key "phone_numbers", "employees"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "suppliers"
 end

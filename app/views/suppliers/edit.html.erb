@@ -1,0 +1,108 @@
+
+<div class="topBar skin-primary">
+ <div class="container-fluid">
+  <div class="row align-items-center">
+   <div class="col-md-4">
+    <div class="logo">
+     <span href="javascript:void(0)" class="toggle-sideBar icon icon-md ft-dark">
+      <i class="fa fa-bars"></i>
+    </span>
+    <a href="/" class="logo-icon text-dark">
+     <!--<img src="img/simplusLogo.png" alt="simplus" class="" style="width: 120px">-->
+     <span class="ft-dark-black">Employee Management</span>
+   </a>
+ </div>
+</div>
+<div class="col-md-4">
+  <!--<h4 class="text-center text-white fw-600 uppercase mt-2">Dashboard</h4>-->
+</div>
+  <div class="col-md-4 text-right">
+  <!-- Example split danger button -->
+  <div class="btn-group mt-2">
+    <%=  link_to "Logout", destroy_user_session_path, method: :delete, class: "v-btn v-btn-primary btn-sm no-round float-right btn-shadow" %>
+    <button type="button" class="v-btn v-btn-dark btn-sm no-round dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right">
+      <a class="dropdown-item" href="changePassword.php">Change Password</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="index.php">Logout</a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<%= render 'sidbar' %>
+<!-- page-content -->
+<section class="wrap page-addVendors">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="block bx-shadow">
+        <div class="content v-form skin-light">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="page-header">
+                <h4>Add Suppliers</h4>
+              </div>  
+            </div>
+          </div>
+
+          <div class="container col-md-8">
+            <%= bootstrap_form_for(@supplier) do |f| %>
+            <% if @supplier.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+              <ul>
+                <% @supplier.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
+            <%= f.text_field :contact_name,class: 'form-control'%>
+            <%= f.text_field :company_name %>
+             <%= f.text_area :address, class: 'form-control' %><br>
+             <%= f.text_field :city %>
+             <%= f.text_field :region %>
+          <!-- phone number need to be added -->
+             <%= f.text_field :postal_code %>
+             <%= f.text_field :country %> 
+            <%= f.submit "Update Supplier" ,class: 'v-btn v-btn-primary btn-sm btn-shadow'%>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</style>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var maxField = 10; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+    var fieldHTML = '<div><input type="text" name="employee[phone_number][]" value=""/><a href="javascript:void(0);" class="remove_button"> <i class="fa fa-minus-circle fa-2x" aria-hidden="true"></i></a></div>'; //New input field html 
+    var x = 1; //Initial field counter is 1
+    
+    //Once add button is clicked
+    $(addButton).click(function(){
+        //Check maximum number of input fields
+        if(x < maxField){ 
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); //Add field html
+          }
+        });
+    
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function(e){
+      e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+      });
+  });
+</script>
