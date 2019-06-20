@@ -82,3 +82,16 @@
    </div>
  </div>
 </section>
+
+
+<script type="text/javascript">
+   var close;
+   close = setTimeout(function()
+      {
+        $('.alert').fadeOut('slow');
+        myStop();
+  }, 5000);
+   function myStop(){
+     clearTimeout(close);
+   }
+  </script>

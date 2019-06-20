@@ -52,7 +52,7 @@ class EmployeesController < ApplicationController
           @employee.phone_numbers.create!(phone_num: p_no)
         end
       end
-      flash[:success] = "You have updated employee successfully"
+      flash[:success] = "Employee updated successfully"
       redirect_to root_path
     else
       flash.now[:error] = "Error In Updating"

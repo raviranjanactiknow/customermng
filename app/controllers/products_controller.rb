@@ -16,8 +16,10 @@ class ProductsController < ApplicationController
     @category_options = Category.all.map { |d| [ d.category_name,d.id ] }
     @product = Product.new(product_params)
     if @product.save
+      flash[:success] = "Product created successfully."
       redirect_to products_path
     else
+      flash[:error] = "Sorry, something went wrong"
       render 'new'
     end
   end
@@ -33,8 +35,10 @@ class ProductsController < ApplicationController
     @category_options = Category.all.map { |d| [ d.category_name,d.id ] }
     @product = Product.find_by_id(params[:id])
     if @product.update(product_params)
+      flash[:success] = "Product updated successfully."
       redirect_to products_path
     else
+      flash[:error] = "Sorry, something went wrong"
       render 'edit'
     end
   end

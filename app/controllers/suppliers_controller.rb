@@ -10,8 +10,10 @@ class SuppliersController < ApplicationController
   def create
     @supplier = Supplier.new(supplier_params)
     if @supplier.save
+      flash[:success] = "Supplier created sucessfully."
       redirect_to suppliers_path
     else
+      flash[:error] = "Sorry, something went wrong"
       render 'new'
     end
   end
@@ -26,14 +28,20 @@ class SuppliersController < ApplicationController
       flash[:success] = "Supplier updated sucessfully."
       redirect_to suppliers_path
     else
+      flash[:error] = "Sorry, something went wrong"
       render 'edit'
     end
   end
  
   def destroy
+    #debugger
     @supplier = Supplier.find(params[:id])
-    @supplier.destroy
-    redirect_to suppliers_path
+    if @supplier.products.nil?
+       @supplier.destroy
+    else    
+      flash[:notice] = "Supplier have product so can't be deleted."
+    end
+     redirect_to suppliers_path
   end
 
   private
