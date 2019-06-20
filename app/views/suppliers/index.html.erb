@@ -62,12 +62,12 @@
         <tr>
           <th>Company Name</th>
           <th>Contact Name</th>
+          <th>Contact Number</th>
           <th>Address</th>
           <th>City</th>
           <th>Region</th>
           <th>Postal Code</th>
           <th>Country</th>
-          <th>Phone</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -77,30 +77,29 @@
          <% if sup.present? %>
          <td><%= sup.company_name %> </td>
          <td><%= sup.contact_name %> </td>
+         <td><%= sup.phone %></td>
          <td><%= sup.address %></td>
          <td><%= sup.city %></td>
-         <td><%= sup.region %></td>
+         <td><%= sup.region %></td> 
          <td><%= sup.postal_code %></td>
          <td><%= sup.country %></td>
-         <td><%= sup.phone %></td>
          <% end %>
          <td>
            <%= link_to edit_supplier_path(sup) ,class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>
            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
            <% end %>
-               <!-- Delete Button showing the modal Start-->
-               <a data-toggle="modal" data-target="#exampleModal<%= sup.id %>" class="v-btn v-btn-transparent ft-primary icon icon-xs uppercase">
-               <i
-                 class="fa fa-trash "></i>
-               </a>
-                <%= render 'supplymodel' ,:dep => sup %>
-                 <!-- Delete Button showing the model End--->
-         </td>
-       </td>
-     </tr>
-     <% end %>
-   </tbody>
- </table>
+           <!-- Delete Button showing the modal Start-->
+           <a data-toggle="modal" data-target="#exampleModal<%= sup.id %>" class="v-btn v-btn-transparent ft-primary icon icon-xs uppercase">
+            <i
+            class="fa fa-trash "></i>
+          </a>
+          <%= render 'supplymodel' ,:dep => sup %>
+        </td>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>
 </div>
 </div>

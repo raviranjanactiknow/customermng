@@ -27,9 +27,12 @@ class DepartmentsController < ApplicationController
  def update
     #debugger
     @department = Department.find(params[:id])
-    @department.update(department_params)
-    flash[:success] = "Department updated successfully"
-    redirect_to departments_path
+    if @department.update(department_params)
+      flash[:success] = "Department updated successfully"
+      redirect_to departments_path
+    else
+      render 'new'
+    end
   end
 
   def destroy
