@@ -1,4 +1,4 @@
-/*main container*/
+main container*/
 .main-container{ float: left; padding: 50px 0px 30px 50px; width: 100%; position: relative;}
 .main-container.toggle-left{padding-left: 200px;}
 .main-container.toggle-right{padding-right: 200px;}
@@ -471,4 +471,28 @@
     border-radius: .25rem;
 }
 
+.pre-loader
+{
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   overflow: hidden;
+   z-index: 99999;
+   background: rgba(0,0,0,0.7);
+  /* display: none;*/
+}
 
+.pre-loader .inner
+{
+   color: #eee;
+   font-size: 2em;
+   text-align: center;
+   margin-top: 25%;
+   font-weight: bold;
+   line-height: 24px;
+   background: none;
+   width: 100%;
+  
+}

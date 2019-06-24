@@ -9,10 +9,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://github.com/Modernizr/Modernizr/raw/master/modernizr.js"></script>
 </head>
 
 <body>
-	
+<div id="pre_loader" class="pre-loader">
+  <div class="inner">
+    <i class="fa fa-spinner fa-spin" style="font-size:24px"></i><h4 color="black">Loading..</h4>
+    </div>
+</div>
+   
  <%= yield %>
 </body>
 </html>
