@@ -1,4 +1,4 @@
-main container*/
+/*main container*/
 .main-container{ float: left; padding: 50px 0px 30px 50px; width: 100%; position: relative;}
 .main-container.toggle-left{padding-left: 200px;}
 .main-container.toggle-right{padding-right: 200px;}
