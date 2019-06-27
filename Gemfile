@@ -80,4 +80,5 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'dotenv-rails', groups: [:development, :test]
 
