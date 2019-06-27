@@ -78,6 +78,6 @@ gem 'sweetalert-rails'
 gem 'semantic-ui-sass'
 gem 'prawn'
 gem 'prawn-table'
-
-
+gem 'carrierwave'
+gem 'fog-aws'
 

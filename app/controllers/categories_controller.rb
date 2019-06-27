@@ -31,11 +31,11 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-   @category = Category.find(params[:id])
-   if @category.products.nil?
-       @category.destroy
-    else    
+   @category = Category.find_by_id(params[:id])
+   if @category.products.present?
       flash[:notice] = "Category have products so can't be deleted."
+    else    
+      @category.destroy
     end
    redirect_to categories_path
   end

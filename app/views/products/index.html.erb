@@ -58,6 +58,7 @@
       <table id="example" class="table table-striped">
        <thead>
         <tr>
+          <th>Image</th>
           <th>Product Name</th>
           <th>QuantityPerUnit</th>
           <th>UnitPrice</th>
@@ -70,11 +71,13 @@
        <% @products.each do |prod| %>
        <tr>
          <% if prod.present? %>
+         <td><%= image_tag(prod.image_url.to_s , size: "150x100")%></td>
          <td><%= prod.product_name %> </td>
          <td><%= prod.quantity_per_unit %> </td>
          <td><%= prod.unit_price %></td>
          <td><%= prod.unit_in_stock %></td>
          <td><%= prod.recorder_level %></td>
+       
          <% end %>
          <td>
            <%= link_to edit_product_path(prod) ,class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>

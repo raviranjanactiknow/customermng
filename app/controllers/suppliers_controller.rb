@@ -36,10 +36,10 @@ class SuppliersController < ApplicationController
   def destroy
     #debugger
     @supplier = Supplier.find(params[:id])
-    if @supplier.products.nil?
-       @supplier.destroy
-    else    
+    if @supplier.products.present?
       flash[:notice] = "Supplier have product so can't be deleted."
+    else    
+      @supplier.destroy
     end
      redirect_to suppliers_path
   end
