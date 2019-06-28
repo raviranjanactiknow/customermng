@@ -40,6 +40,8 @@
 
 
 <%= render 'sidbar' %>
+<div class="main-container">
+<div class="container-fluid">
 <!-- page-content -->
 <div class="row">
  <div class="col-md-12">
@@ -98,8 +100,8 @@
 <%= will_paginate @categories, renderer: WillPaginateSemanticUi::ActionView::Renderer, class: "right floated", inner_window: 3 %>
 </div>
 </section>
-
-
+</div>
+</div>
 <script type="text/javascript">
    var close;
    close = setTimeout(function()

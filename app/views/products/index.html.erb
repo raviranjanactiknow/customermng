@@ -39,71 +39,73 @@
 
 <%= render 'sidebar' %>
 <!-- page-content -->
-<div class="row">
- <div class="col-md-12">
-  <div class="page-header"  style="margin-top: 5%">
-   <%= link_to 'Add Product', new_product_path ,class: "v-btn v-btn-primary btn-sm no-round float-right btn-shadow"%>
- </div>
-</div>
-</div>
-<div class="container">
+<div class="main-container">
+<div class="container-fluid">
   <%= flash_messages %>
-</div><!-- /container -->
-<section class="wrap page-addVendors">
+  <div class="row">
+   <div class="col-md-12">
+    <div class="page-header pt-2">
+     <%= link_to 'Add Product', new_product_path ,class: "v-btn v-btn-primary btn-sm no-round float-right btn-shadow"%>
+   </div>
+  </div>
+  </div>
+  <section class="wrap page-addVendors">
+  <!--  TODO Show Product image on click -->
  <div class="row">
-   <div class="col-md-9 offset-md-2">
-    <br>
-    <div class="block bx-shadow skin-light">
+   <div class="col-md-12">
+   <div class="block bx-shadow skin-light">
      <div class="content">
-      <table id="example" class="table table-striped">
-       <thead>
-        <tr>
-          <th>Image</th>
-          <th>Product Name</th>
-          <th>QuantityPerUnit</th>
-          <th>UnitPrice</th>
-          <th>UnitInStock</th>
-          <th>RecorderLevel</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-       <% @products.each do |prod| %>
-       <tr>
-         <% if prod.present? %>
-         <td><%= image_tag(prod.image_url.to_s , size: "150x100")%></td>
-         <td><%= prod.product_name %> </td>
-         <td><%= prod.quantity_per_unit %> </td>
-         <td><%= prod.unit_price %></td>
-         <td><%= prod.unit_in_stock %></td>
-         <td><%= prod.recorder_level %></td>
-       
-         <% end %>
-         <td>
-           <%= link_to edit_product_path(prod) ,class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>
-           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <table id="example" class="table table-striped">
+         <thead>
+          <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>QuantityPerUnit</th>
+            <th>UnitPrice</th>
+            <th>UnitInStock</th>
+            <th>RecorderLevel</th>
+            <th>Action</th>
+          </tr>
+            </thead>
+            <tbody>
+             <% @products.each do |prod| %>
+             <tr>
+               <% if prod.present? %>
+               <td><%= image_tag(prod.image_url.to_s , size: "150x100")%></td>
+               <td><%= prod.product_name %> </td>
+               <td><%= prod.quantity_per_unit %> </td>
+               <td><%= prod.unit_price %></td>
+               <td><%= prod.unit_in_stock %></td>
+               <td><%= prod.recorder_level %></td>
+             
+               <% end %>
+               <td>
+                 <%= link_to edit_product_path(prod) ,class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>
+                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                 <% end %>
+                 <!-- Delete Button showing the modal Start-->
+                 <a data-toggle="modal" data-target="#exampleModal<%= prod.id %>" class="v-btn v-btn-transparent ft-primary icon icon-xs uppercase">
+                   <i
+                   class="fa fa-trash "></i>
+                 </a>
+                 <%= render 'productmodel' ,:dep => prod %>
+               </td>
+             </td>
+           </tr>
            <% end %>
-           <!-- Delete Button showing the modal Start-->
-           <a data-toggle="modal" data-target="#exampleModal<%= prod.id %>" class="v-btn v-btn-transparent ft-primary icon icon-xs uppercase">
-             <i
-             class="fa fa-trash "></i>
-           </a>
-           <%= render 'productmodel' ,:dep => prod %>
-         </td>
-       </td>
-     </tr>
-     <% end %>
-   </tbody>
- </table>
-</div>
-</div>
-</div>
-</div>
-</div>
+         </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
 </div>
 <%= will_paginate @suppliers, renderer: WillPaginateSemanticUi::ActionView::Renderer, class: "right floated", inner_window: 3 %>
 </div>
 </section>
+</div><!-- /container -->
+</div>
 
 
 <script type="text/javascript">
@@ -122,3 +124,4 @@
    $('#pre_loader').hide();
 });
   </script>
+

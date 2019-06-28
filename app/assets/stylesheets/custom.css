@@ -398,11 +398,13 @@
 **********************************/
 
 
-
-
-
-
-
+/*card hoverable*/
+.stats-card .img-wrap{position:relative;}
+.stats-card .img-wrap >img{ border-top-left-radius: 5px; border-top-right-radius: 5px;}
+.stats-card .hoverable{position: absolute;top:0;bottom: 0; display: none; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.53);}
+.stats-card .hoverable .hoverable-content{padding-top: 80px;}
+.stats-card:hover .hoverable{display: block;}
+.stats-card .del-stats-card{position: absolute; top: 0;right: 0; color:#fff;}
 
 
 

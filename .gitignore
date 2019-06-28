@@ -1,10 +1,10 @@
 
 # Ignore bundler config.
-# /.bundle
+ /.bundle
 
 # Ignore all logfiles and tempfiles.
 # /log/*
-# /tmp/*
+ /tmp/*
 # !/log/.keep
 # !/tmp/.keep
 
@@ -13,12 +13,12 @@
 # !/storage/.keep
 
 #/public/assets
-# .byebug_history
+ .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-# /config/master.key
+ /config/master.key
 /config/database.yml
-# tmp
-# tmp/*
+ tmp
+ tmp/*
 
 /.env
