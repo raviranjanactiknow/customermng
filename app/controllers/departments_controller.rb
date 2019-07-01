@@ -31,7 +31,7 @@ class DepartmentsController < ApplicationController
       flash[:success] = "Department updated successfully"
       redirect_to departments_path
     else
-      render 'new'
+      render 'edit'
     end
   end
 

@@ -1,0 +1,128 @@
+<div class="topBar skin-primary">
+  <div class="container-fluid"> 
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <div class="logo">
+          <span href="javascript:void(0)" class="toggle-sideBar icon icon-md ft-dark">
+            <i class="fa fa-bars"></i>
+          </span>
+          <a href="/" class="logo-icon text-dark">
+           <!--<img src="img/simplusLogo.png" alt="simplus" class="" style="width: 120px">-->
+           <span class="ft-dark-black">Employee Management</span>
+         </a>
+       </div>
+     </div>
+     <div class="col-md-4">
+      <!--<h4 class="text-center text-white fw-600 uppercase mt-2">Dashboard</h4>-->
+    </div>
+    <div class="col-md-4 text-right">
+      <!-- Example split danger button -->
+      <div class="btn-group mt-2">
+        <%=  link_to "Logout", destroy_user_session_path, method: :delete, class: "v-btn v-btn-primary btn-sm no-round float-right btn-shadow" %>
+        <button type="button" class="v-btn v-btn-dark btn-sm no-round dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="changePassword.php">Change Password</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="index.php">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<%= render 'sidebar' %>
+<div class="main-container">
+  <div class="container-fluid">
+    <!-- page-content -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-header"  style="margin-top: 5%">
+          <%= link_to 'Add Customer', new_customer_path ,class: "v-btn v-btn-primary btn-sm no-round float-right btn-shadow"%>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <%= flash_messages %>
+    </div><!-- /container -->
+    <section class="wrap page-addVendors">
+      <div class="row">
+        <div class="col-md-9 offset-md-2">
+          <br>
+          <div class="block bx-shadow skin-light">
+            <div class="content">
+              <table id="example" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Company Name</th>
+                    <th>Contact Name</th>
+                    <th>Contact Title</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Postal Code</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                    <th>Fax</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @customers.each do |cust| %>
+                  <tr>
+                    <% if cust.present? %>
+                    <td><%= cust.company_name %> </td>
+                    <td><%= cust.contact_name %> </td>
+                    <td><%= cust.contact_title %> </td>
+                    <td><%= cust.address %> </td>
+                    <td><%= cust.city %> </td>
+                    <td><%= cust.region %> </td>
+                    <td><%= cust.postal_code %> </td>
+                    <td><%= cust.country %> </td>
+                    <td><%= cust.phone %> </td>
+                    <td><%= cust.fax %> </td>
+                    <% end %>
+                    <td>
+                      <%= link_to edit_customer_path(cust) ,class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      <% end %>
+                      <!-- Delete Button showing the modal Start-->
+                      <a data-toggle="modal" data-target="#exampleModal<%= cust.id %>" class="v-btn v-btn-transparent ft-primary icon icon-xs uppercase">
+                        <i class="fa fa-trash "></i>
+                      </a>
+                      <%= render 'customermodel' ,:dep => cust %>
+                      <!-- Delete Button showing the model End--->
+                    </td>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= will_paginate @customers, renderer: WillPaginateSemanticUi::ActionView::Renderer, class: "right floated", inner_window: 3 %>
+</div>
+</section>
+</div>
+</div>
+<script type="text/javascript">
+  var close;
+  close = setTimeout(function()
+  {
+    $('.alert').fadeOut('slow');
+    myStop();
+  }, 5000);
+  function myStop(){
+    clearTimeout(close);
+  }
+  $(function() {
+// put your code here
+$('#pre_loader').hide();
+});
+</script>

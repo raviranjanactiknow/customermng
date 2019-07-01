@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :suppliers
   resources :products
-
+  resources :customers
   resources :employees do
     collection do
      get :export_data
