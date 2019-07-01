@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root 'employees#index'
   resources :categories
   resources :suppliers
-  resources :products
+  resources :products do
+     collection do
+    get :image_data
+   end
+ end
   resources :customers
   resources :employees do
     collection do

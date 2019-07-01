@@ -44,85 +44,46 @@
   <%= flash_messages %>
   <div class="row">
    <div class="col-md-12">
-     <div class="page-header pt-2">
-      <%= link_to 'Grid View', image_data_products_path,class: "v-btn v-btn-primary btn-sm no-round float-right btn-shadow" %> 
-    </div> &nbsp;
     <div class="page-header pt-2">
      <%= link_to 'Add Product', new_product_path ,class: "v-btn v-btn-primary btn-sm no-round float-right btn-shadow"%>
-       </div>
-     
    </div>
   </div>
   </div>
   <section class="wrap page-addVendors">
-  <!--  TODO Show Product image on click -->
-  <!-- <div class="row">
+      <div class="row">
+         <% @products.each do |prod|%>
     <div class="col-md-3">
       <div class="block bx-shadow skin-light  stats-card">
-          <div class="img-wrap">
-            <div class="bg-img" style="height: 200px; width: 100%; background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/07/Green-nature-hd-wallpaper-1080p.jpg">
+        <div class="img-wrap">
+          <% if prod.image.present? %>
+            <div class="bg-img" style="height: 200px; width: 100%; background-image: url(<%= prod.image_url.to_s%>")>
             </div>
+            <% else %>
+            <div class="bg-img" style="height: 200px; width: 100%; background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/07/Green-nature-hd-wallpaper-1080p.jpg")>
+            </div>
+             <% end %>
             <div class="hoverable">
               <div class="hoverable-content text-center">
-                <a href="#" class="icon icon-md del-stats-card"><i class="fa fa-times"></i></a>
+             <%= link_to product_path(prod), method: :delete, class: 'icon icon-md del-stats-card' do %>
+                <i class="fa fa-times"></i>
+                <% end %>
+                 <!-- <a data-toggle="modal" data-target="#exampleModal<%= prod.id %>" class="icon icon-md del-stats-card">
+                   <i
+                   class="fa fa-trash "></i>
+                 </a> -->
+                
+                <!-- <a href="#" class="icon icon-md del-stats-card"><i class="fa fa-times"></i></a> -->
                 <a href="#" class="v-btn v-btn-primary btn-sm">View Image</a>
               </div>
             </div>
           </div>
           <div class="content">
-            <h4 class="title ft-md">Training / Webinar Order Form</h4>
-            <p class="ft-xs">Facebook Image - 1000 x 800</p>
+            <h4 class="title ft-md"><%= prod.product_name %></h4>
           </div>
         </div>
     </div> 
-  </div> -->
- <div class="row">
-   <div class="col-md-12">
-   <div class="block bx-shadow skin-light">
-     <div class="content">
-        <table id="example" class="table table-striped">
-         <thead>
-          <tr>
-            <th>Image</th>
-            <th>Product Name</th>
-            <th>QuantityPerUnit</th>
-            <th>UnitPrice</th>
-            <th>UnitInStock</th>
-            <th>RecorderLevel</th>
-            <th>Action</th>
-          </tr>
-            </thead>
-            <tbody>
-             <% @products.each do |prod| %>
-             <tr>
-               <% if prod.present? %>
-               <td><%= image_tag(prod.image_url.to_s , size: "150x100")%></td>
-               <td><%= prod.product_name %> </td>
-               <td><%= prod.quantity_per_unit %> </td>
-               <td><%= prod.unit_price %></td>
-               <td><%= prod.unit_in_stock %></td>
-               <td><%= prod.recorder_level %></td>
-             
-               <% end %>
-               <td>
-                 <%= link_to edit_product_path(prod) ,class: 'v-btn v-btn-transparent ft-primary icon icon-xs uppercase' do %>
-                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                 <% end %>
-                 <!-- Delete Button showing the modal Start-->
-                 <a data-toggle="modal" data-target="#exampleModal<%= prod.id %>" class="v-btn v-btn-transparent ft-primary icon icon-xs uppercase">
-                   <i
-                   class="fa fa-trash "></i>
-                 </a>
-                 <%= render 'productmodel' ,:dep => prod %>
-               </td>
-             </td>
-           </tr>
-           <% end %>
-         </tbody>
-        </table>
-      </div>
-    </div>
-    </div>
+
+  <% end %>
   </div>
   </div>
 </div>
@@ -131,7 +92,6 @@
 </section>
 </div><!-- /container -->
 </div>
-
 
 <script type="text/javascript">
    var close;

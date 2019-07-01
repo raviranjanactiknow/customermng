@@ -46,7 +46,12 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
+    flash[:notice] = "Product destroyed successfully"
     redirect_to products_path
+  end
+
+  def image_data
+    @products = Product.all.paginate(page: params[:page],per_page: 16)
   end
 
 private
